@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/scrs/index",
+    serviceName: "Set up a limited company and register for Corporation Tax",
+    serviceUrl: "/scrs/index"
+  }) }}
+{% endblock %}
+{% block pageTitle %}
+  What is the correspondence address for {Name}?
+{% endblock %}
+
+{% block content %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.back()"
+}) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/scrs/address-find-principal-place-business" method="get" class="form">
+
+        <h1 class="govuk-heading-l">What is the correspondence address for {Name}?</h1>
+
+        {{ govukInsetText({
+          text: "This can be a commercial or home address but it will appear on the public record and be available online."
+        }) }}
+
+        {{ govukRadios({
+            idPrefix: "correspondenceAddress",
+            name: "correspondenceAddress",
+            fieldset: {
+              legend: {
+                text: "What is the correspondence address for {Name}?",
+                isPageHeading: true,
+                classes: "govuk-visually-hidden"
+              }
+            },
+            items: [
+              {
+                value: "wentloog",
+                text: "84 Wentloog Road, Rumney, Cardiff, CF3 3EA, Wales"
+              },
+              {
+                value: "crown",
+                text: "1 Crown Way, Maindy, Cardiff CF14 3UZ"
+              },
+              {
+                value: "different",
+                text: "A different address"
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+            text: "Find address"
+          }) }}
+
+      </form>
+      <p>
+        <a href="javascript:void(0)" class="govuk-link govuk-body-s scrs-help-link">Get help with this page</a>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}

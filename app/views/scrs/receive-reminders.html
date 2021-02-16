@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/scrs/index",
+    serviceName: "Set up a limited company and register for Corporation Tax",
+    serviceUrl: "/scrs/index"
+  }) }}
+{% endblock %}
+{% block pageTitle %}
+  Does
+  {{ data['directors-first-name'] }}
+  {{ data['directors-middle-names'] }}
+  {{ data['directors-last-name'] }}
+  want to receive filing reminders by email?
+{% endblock %}
+
+{% block content %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/scrs/reminders-yes" method="get" class="form">
+
+        <h1 class="govuk-heading-l">
+          Does
+          {{ data['directors-first-name'] }}
+          {{ data['directors-middle-names'] }}
+          {{ data['directors-last-name'] }}
+          want to receive filing reminders by email?</h1>
+        <p>Opting to receive filing reminders by email will mean that we no longer send them by post</p>
+
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What are filing reminders?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>We will remind you when your company’s confirmation statement and accounts are due for filing.</p>
+          </div>
+        </details>
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "reminders",
+          name: "reminders",
+          fieldset: {
+            legend: {
+              text: "Does {name} want to receive filing reminders by email?",
+              isPageHeading: false,
+              classes: "govuk-visually-hidden"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked('reminders','Yes')
+            },
+            {
+              value: "No",
+              text: "No",
+              checked: checked('reminders','No')
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+          }) }}
+      </form>
+      <p>
+        <a href="javascript:void(0)" class="govuk-link govuk-body-s scrs-help-link">Get help with this page</a>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}

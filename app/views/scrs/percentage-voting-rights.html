@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/scrs/index",
+    serviceName: "Set up a limited company and register for Corporation Tax",
+    serviceUrl: "/scrs/index"
+  }) }}
+{% endblock %}
+{% block pageTitle %}
+  What percentage of voting rights does
+  {{ data['person-name-for-testing'] }}own?
+{% endblock %}
+
+{% block content %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/scrs/right-remove-appoint" method="get" class="form">
+
+        <div class="govuk-form-group">
+
+          <fieldset class="govuk-fieldset">
+
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                What percentage of voting rights does
+                {{ data['person-name-for-testing'] }}
+                own?
+              </h1>
+            </legend>
+            <div class="govuk-radios">
+
+              <div class="govuk-radios__item">
+                <input
+                  class="govuk-radios__input"
+                  id="percentage-voting-rights-1"
+                  name="percentage-voting-rights"
+                  type="radio"
+                  value="The person holds, directly or indirectly, more than 75% of the voting rights in the company."
+                  {{ checked("percentage-voting-rights", "The person holds, directly or indirectly, more than 75% of the voting rights in the company.") }}>
+                <label class="govuk-label govuk-radios__label" for="percentage-voting-rights-1">
+                  75% or more of voting rights
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input
+                  class="govuk-radios__input"
+                  id="percentage-voting-rights-2"
+                  name="percentage-voting-rights"
+                  type="radio"
+                  value="The person holds, directly or indirectly, more than 50%, but not more than 75% of the voting rights in the company."
+                  {{ checked("percentage-voting-rights", "The person holds, directly or indirectly, more than 50%, but not more than 75% of the voting rights in the company.") }}>
+                <label class="govuk-label govuk-radios__label" for="percentage-voting-rights-2">
+                  More than 50%, but not more than 75% of voting rights
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input
+                  class="govuk-radios__input"
+                  id="percentage-voting-rights-3"
+                  name="percentage-voting-rights"
+                  type="radio"
+                  value="The person holds, directly or indirectly, more than 25%, but not more than 50% of the voting rights in the company."
+                  {{ checked("percentage-voting-rights", "The person holds, directly or indirectly, more than 25%, but not more than 50% of the voting rights in the company.") }}>
+                <label class="govuk-label govuk-radios__label" for="percentage-voting-rights-3">
+                  More than 25%, but not more than 50% of voting rights
+                </label>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input
+                  class="govuk-radios__input"
+                  id="percentage-voting-rights-4"
+                  name="percentage-voting-rights"
+                  type="radio"
+                  value="None of the above (actual wording to be confirmed)"
+                  {{ checked("percentage-voting-rights", "None of the above (actual wording to be confirmed)") }}>
+                <label class="govuk-label govuk-radios__label" for="percentage-voting-rights-4">
+                  None of the above
+                </label>
+              </div>
+
+            </div>
+          </fieldset>
+
+        </div>
+        {{ govukButton({
+          text: "Save and continue"
+          }) }}
+      </form>
+      <p>
+        <a href="javascript:void(0)" class="govuk-link govuk-body-s scrs-help-link">Get help with this page</a>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/scrs/index",
+    serviceName: "Set up a limited company and register for Corporation Tax",
+    serviceUrl: "/scrs/index"
+  }) }}
+{% endblock %}
+
+{% block pageTitle %}
+  Streamlined company registration service
+{% endblock %}
+{% block main %}
+
+  <div class="govuk-width-container">
+    {% include "includes/phase_banner_beta.html" %}
+
+    <main class="govuk-main-wrapper" id="main-content" role="main">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <h1 class="govuk-heading-xl">
+            Streamlined company registration service</h1>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>
+              <a href="/scrs/set-test-variables">Set test company name and person name</a>
+            </li>
+          </ul>
+
+          <h2 class="govuk-heading-m">
+            Shortcuts</h2>
+
+          <h2 class="govuk-heading-s">
+            Address lookup</h2>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>
+              <a href="/scrs/address-principal-place-business">What is the company's 'principal place of business'?</a>
+            </li>
+            <li>
+              <a href="/scrs/address-what-is-registered-office-address">What is the company's registered office address?</a>
+            </li>
+            <li>
+              <a href="/scrs/address-what-is-correspondence-address">What is the correspondence address for {Name}?</a>
+            </li>
+            <li>
+              <a href="/scrs/address-find-principal-place-business">Find the address where the company will carry out most of its business activities</a>
+            </li>
+            <li>
+              <a href="/scrs/address-confirm">Confirm the address</a>
+            </li>
+            <li>
+              <a href="/scrs/address-choose">Choose an address</a>
+            </li>
+            <li>
+              <a href="/scrs/address-enter">Enter an address</a>
+            </li>
+            <li>
+              <a href="/scrs/address-edit">Edit an address</a>
+            </li>
+          </ul>
+
+          <h2 class="govuk-heading-s">
+            PSCs</h2>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>
+              <a href="/scrs/psc-halt-page">You're about to set up the ‘Persons with Significant Control’ over the company</a>
+            </li>
+            <li>
+              <a href="/scrs/is-a-psc">Is {name} a person with significant control?</a>
+            </li>
+            <li>
+              <a href="/scrs/psc-in-control">Check and confirm details of the persons in control of {company name}</a>
+            </li>
+            <li>
+              <a href="/scrs/distributed-a-share">Will {name} be distributed a share of the company's profit?</a>
+            </li>
+            <li>
+              <a href="/scrs/how-much-profit">How much of the company's profits will {name} receive?</a>
+            </li>
+            <li>
+              <a href="/scrs/percentage-voting-rights">What percentage of voting rights does {name} own?</a>
+            </li>
+            <li>
+              <a href="/scrs/right-remove-appoint">Does {name} have the right to appoint or remove the majority of company directors?</a>
+            </li>
+            <li>
+              <a href="/scrs/check-and-confirm">Check and confirm</a>
+            </li>
+
+          </ul>
+
+          <h2 class="govuk-heading-s">
+            Reminders</h2>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>
+              <a href="/scrs/directors-details">Director's details</a>
+            </li>
+            <li>
+              <a href="/scrs/correspondence-address">What is the correspondence address for {name}?</a>
+            </li>
+            <li>
+              <a href="/scrs/home-address">What is the home address for {name}?</a>
+            </li>
+            <li>
+              <a href="/scrs/receive-reminders">Does {name} want to receive filing reminders by email?</a>
+            </li>
+            <li>
+              <a href="/scrs/reminders-yes">Which email address does {name} want to use to receive filing reminders?</a>
+            </li>
+            <li>
+              <a href="/scrs/reminders-yes-not-previously-supplied">What email address does {name} want to use to receive filing reminders?</a>
+            </li>
+            <li>
+              <a href="/scrs/check-and-confirm-reminders">Check and confirm</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </main>
+  </div>
+  <!---govuk-width-container-->
+
+{% endblock %}

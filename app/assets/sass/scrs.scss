@@ -1,0 +1,23 @@
+//Styles for SCRS
+
+a.scrs-help-link:link,
+a.scrs-help-link:visited {
+  color: govuk-colour("light-blue");
+}
+
+.all-caps {
+  text-transform: uppercase !important; // Ensuring company names are all uppercase to match CHS!
+}
+
+.secondary-button {
+  background-color: govuk-colour("light-grey");
+  color: govuk-colour("black") !important;
+  box-shadow: 0 2px 0 govuk-colour("dark-grey");
+
+  &:focus,
+  &:hover {
+    background-color: govuk-colour("dark-grey");
+    color: govuk-colour("black");
+    box-shadow: 0 2px 0 govuk-colour("black");
+  }
+}

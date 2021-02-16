@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/accounts-reminder/index",
+    serviceName: "Accounts eReminder",
+    serviceUrl: "/accounts-reminder/index"
+  }) }}
+{% endblock %}
+
+{% block pageTitle %}
+  Accounts eReminder
+{% endblock %}
+{% block main %}
+
+  <div class="govuk-width-container">
+    {% include "includes/phase_banner_beta.html" %}
+
+    <main class="govuk-main-wrapper" id="main-content" role="main">
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+
+          <h1 class="govuk-heading-xl">
+            Accounts eReminder</h1>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>
+              <a href="/accounts-reminder/accounts-due">Your accounts are due</a>
+            </li>
+            <li class="govuk-!-margin-bottom-5">
+              <a href="/accounts-reminder/accounts-due-eligibility">Your accounts are due (with eligibility exception)</a>
+            </li>
+            <li>
+              <a href="/accounts-reminder/accounts-due-double">Your accounts are due (warning about double penalty)</a>
+            </li>
+            <li class="govuk-!-margin-bottom-5">
+              <a href="/accounts-reminder/accounts-due-double-eligibility">Your accounts are due (warning about double penalty - with eligibility exception)</a>
+            </li>
+
+            <li>
+              <a href="/accounts-reminder/accounts-due-previous">Your accounts are due (previous years)</a>
+            </li>
+            <li>
+              <a href="/accounts-reminder/accounts-due-previous-eligibility">Your accounts are due (previous years - with eligibility exception)</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+    </main>
+  </div>
+  <!---govuk-width-container-->
+
+{% endblock %}

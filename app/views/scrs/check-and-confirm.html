@@ -1,0 +1,284 @@
+{% extends "layout.html" %}
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/scrs/index",
+    serviceName: "Set up a limited company and register for Corporation Tax",
+    serviceUrl: "/scrs/index"
+  }) }}
+{% endblock %}
+{% block pageTitle %}
+  Check and confirm details of the persons in control of
+  <span class="all-caps">{{ data['company-name-for-testing'] }}</span>
+{% endblock %}
+
+{% block content %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.back()"
+  }) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="javascript:void(0)" method="get" class="form">
+
+        <h1 class="govuk-heading-l">
+          Check and confirm details of the persons in control of
+          <span class="all-caps">{{ data['company-name-for-testing'] }}</span>
+        </h1>
+
+        {{ govukInsetText({
+          text: "Details about persons in control of a company will appear on the public record except for the full date of birth and home address."
+        }) }}
+
+        <p>
+          Where the director, shareholder and Person with Significant Control are the same, we've reused information you entered previously.
+        </p>
+
+        <!-- only add a heading for a list if there is more than one list -->
+        <h2 class="govuk-heading-m">
+          {{ data['person-name-for-testing'] }}
+        </h2>
+        <p>
+          <a href="javascript:void(0)" class="govuk-link">Remove Person with Significant Control
+            {{ data['person-name-for-testing'] }}</a>
+        </p>
+
+        <!-- use additional modifier class to change column widths for multiple groups of questions and answers: -->
+        <!-- * `app-check-your-answers--short` for short questions -->
+        <!-- * `app-check-your-answers__questions-long` for long questions -->
+        <!-- * none for single group of q&a -->
+
+        <dl class="app-check-your-answers app-check-your-answers--short">
+          <div class="app-check-your-answers__contents">
+            <dt class="app-check-your-answers__question">
+              Name
+            </dt>
+            <dd class="app-check-your-answers__answer">
+              {{ data['person-name-for-testing'] }}
+            </dd>
+            <dd class="app-check-your-answers__change">
+              <a href="javascript:void(0)">
+                Change<span class="govuk-visually-hidden">
+                  name</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="app-check-your-answers__contents">
+            <dt class="app-check-your-answers__question">
+              Date of birth
+            </dt>
+            <dd class="app-check-your-answers__answer">
+              5 January 1978
+            </dd>
+            <dd class="app-check-your-answers__change">
+              <a href="javascript:void(0)">
+                Change<span class="govuk-visually-hidden">
+                  date of birth</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="app-check-your-answers__contents">
+            <dt class="app-check-your-answers__question">
+              Country the person lives in
+            </dt>
+            <dd class="app-check-your-answers__answer">
+              United Kingdom
+            </dd>
+            <dd class="app-check-your-answers__change">
+              <a href="javascript:void(0)">
+                Change<span class="govuk-visually-hidden">
+                  Country the person lives in
+                </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="app-check-your-answers__contents">
+            <dt class="app-check-your-answers__question">
+              Nationality
+            </dt>
+            <dd class="app-check-your-answers__answer">British
+            </dd>
+            <dd class="app-check-your-answers__change">
+              <a href="javascript:void(0)">
+                Change<span class="govuk-visually-hidden">
+                  Nationality</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="app-check-your-answers__contents">
+            <dt class="app-check-your-answers__question">
+              What is the correspondence address for
+              {{ data['person-name-for-testing'] }}?
+            </dt>
+            <dd class="app-check-your-answers__answer">The correspondence address is the same as the company's registered office address
+            </dd>
+            <dd class="app-check-your-answers__change">
+              <a href="javascript:void(0)">
+                Change<span class="govuk-visually-hidden">
+                  What is the correspondence address for
+                  {{ data['person-name-for-testing'] }}?
+                </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="app-check-your-answers__contents">
+            <dt class="app-check-your-answers__question">
+              What is the home address for
+              {{ data['person-name-for-testing'] }}?
+            </dt>
+            <dd class="app-check-your-answers__answer">14 Crown Way<br/>
+              Cardiff<br/>
+              Wales<br/>
+              CF14 3UZ
+            </dd>
+            <dd class="app-check-your-answers__change">
+              <a href="javascript:void(0)">
+                Change<span class="govuk-visually-hidden">
+                  What is the home address for
+                  {{ data['person-name-for-testing'] }}?</span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="app-check-your-answers__contents">
+            <dt class="app-check-your-answers__question">
+              Is
+              {{ data['person-name-for-testing'] }}
+              a person with significant control?
+            </dt>
+            <dd class="app-check-your-answers__answer">{{ data['isapsc'] }}
+            </dd>
+            <dd class="app-check-your-answers__change">
+              <a href="/scrs/isapsc">
+                Change<span class="govuk-visually-hidden">
+                  Is
+                  {{ data['person-name-for-testing'] }}
+                  a person with significant control?
+                </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="app-check-your-answers__contents">
+            <dt class="app-check-your-answers__question">
+              Will
+              {{ data['person-name-for-testing'] }}
+              be distributed a share of the company's profits?
+            </dt>
+            <dd class="app-check-your-answers__answer">{{ data['distributedShare'] }}
+            </dd>
+            <dd class="app-check-your-answers__change">
+              <a href="/scrs/distributed-a-share">
+                Change<span class="govuk-visually-hidden">
+                  Will
+                  {{ data['person-name-for-testing'] }}
+                  be distributed a share of the company's profits?
+                </span>
+              </a>
+            </dd>
+          </div>
+
+          {% if data['distributedShare'] === 'Yes' %}
+
+            <div class="app-check-your-answers__contents">
+              <dt class="app-check-your-answers__question">
+                How much of the company's profits will
+                {{ data['person-name-for-testing'] }}
+                receive?</dt>
+              <dd class="app-check-your-answers__answer">
+                {{ data['how-much-profits'] }}
+              </dd>
+              <dd class="app-check-your-answers__change">
+                <a href="/scrs/how-much-profit">
+                  Change<span class="govuk-visually-hidden">
+                    How much of the company's profits will
+                    {{ data['person-name-for-testing'] }}
+                    receive?
+                  </span>
+                </a>
+              </dd>
+            </div>
+          {% endif %}
+
+          <div class="app-check-your-answers__contents">
+            <dt class="app-check-your-answers__question">
+              What percentage of voting rights does
+              {{ data['person-name-for-testing'] }}
+              own?
+            </dt>
+            <dd class="app-check-your-answers__answer">{{ data['percentage-voting-rights'] }}</dd>
+            <dd class="app-check-your-answers__change">
+              <a href="/scrs/percentage-voting-rights">
+                Change<span class="govuk-visually-hidden">
+                  What percentage of voting rights does
+                  {{ data['person-name-for-testing'] }}
+                  own?
+                </span>
+              </a>
+            </dd>
+          </div>
+
+          <div class="app-check-your-answers__contents">
+            <dt class="app-check-your-answers__question">
+              As an individual, does
+              {{ data['person-name-for-testing'] }}
+              have the right to appoint or remove directors?
+            </dt>
+            <dd class="app-check-your-answers__answer">{{ data['right-remove-appoint'] }}
+            </dd>
+            <dd class="app-check-your-answers__change">
+              <a href="/scrs/right-remove-appoint">
+                Change<span class="govuk-visually-hidden">
+                  As an individual, does
+                  {{ data['person-name-for-testing'] }}
+                  have the right to appoint or remove directors?
+                </span>
+              </a>
+            </dd>
+          </div>
+
+        </dl>
+
+        <p>
+          <a href="javascript:void(0)" class="govuk-link">Add another person in control of the company</a>
+        </p>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="confirm">
+            <legend class="govuk-visually-hidden">
+              I confirm that the persons named here are in control of
+              {{ data['company-name-for-testing'] }}. They understand that their information will be listed in the public record.
+            </legend>
+
+            <div class="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste-1" name="confirm" type="checkbox" value="confirm">
+                <label class="govuk-label govuk-checkboxes__label" for="confirm">
+                  I confirm that the persons named here are in control of
+                  <span class="all-caps">{{ data['company-name-for-testing'] }}</span>. They understand that their information will be listed in the public record.
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        {{ govukDetails({
+            summaryText: "What legal statement will appear on this company application?",
+            text: "Text goes here."
+          }) }}
+        {{ govukButton({
+            text: "Save and continue"
+            }) }}
+      </form>
+      <p>
+        <a href="javascript:void(0)" class="govuk-link govuk-body-s scrs-help-link">Get help with this page</a>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}
