@@ -1,0 +1,196 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+    Error: Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: errorList
+          }) }}
+
+      <h1 class="govuk-heading-xl">Heading</h1>
+
+      <form class="form" action="confirmation" method="post">
+
+
+        <!--What is the name of the event? - WITH errors -->
+
+
+        {{ govukInput({
+            label: {
+              text: "What is the name of the event?",
+              classes: "govuk-label--l",
+              isPageHeading: true
+            },
+            id: "event-name",
+            name: "event-name",
+            value: EventtName,
+            errorMessage: {
+                      html: '<span class="govuk-visually-hidden">Error:</span>Enter the name of the event'
+                  }
+          }) }}
+
+          <!--What is the name of the event? - without errors -->
+
+          {{ govukInput({
+              label: {
+                text: "What is the name of the event?",
+                classes: "govuk-label--l",
+                isPageHeading: true
+              },
+              id: "event-name",
+              name: "event-name"
+            }) }}
+
+
+
+
+
+          <!--Have you changed your name? - without errors -->
+
+
+
+          {{ govukRadios({
+                classes: "govuk-radios--inline",
+                idPrefix: "changed-name",
+                name: "changed-name",
+                fieldset: {
+                  legend: {
+                    text: "Have you changed your name?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                  }
+                },
+                hint: {
+                  text: "This includes changing your last name or spelling your name differently."
+                },
+                items: [
+                  {
+                    value: "yes",
+                    text: "Yes",
+                    checked: checked ("changed-name", "yes")
+
+                  },
+                  {
+                    value: "no",
+                    text: "No",
+                    checked: checked ("changed-name", "no")
+
+                  }
+                ],
+                errorMessage: {
+                            html: '<span class="govuk-visually-hidden">Error:</span>Select yes if you have changed your name'
+                        }
+              }) }}
+
+              <!--Have you changed your name? - WITH errors -->
+
+              {{ govukRadios({
+                    classes: "govuk-radios--inline",
+                    idPrefix: "changed-name",
+                    name: "changed-name",
+                    fieldset: {
+                      legend: {
+                        text: "Have you changed your name?",
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                      }
+                    },
+                    hint: {
+                      text: "This includes changing your last name or spelling your name differently."
+                    },
+                    items: [
+                      {
+                        value: "yes",
+                        text: "Yes"
+                      },
+                      {
+                        value: "no",
+                        text: "No"
+                      }
+                    ]
+                  }) }}
+
+
+
+
+
+
+              <!--When was your passport issued? - WITH errors -->
+
+              {{ govukDateInput({
+                id: "passport-issued",
+                namePrefix: "passport-issued",
+                fieldset: {
+                  legend: {
+                    text: "When was your passport issued?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                  }
+                },
+                hint: {
+                  text: "For example, 27 3 2007"
+                },
+                errorMessage: {
+                  html: '<span class="govuk-visually-hidden">Error:</span>There are all sorts of date errors! See GOV.UK Design System'
+                },
+                  items: [
+                    {
+                      classes: "govuk-input--width-2 govuk-input--error",
+                      name: "day"
+                    },
+                    {
+                      classes: "govuk-input--width-2 govuk-input--error",
+                      name: "month"
+                    },
+                    {
+                      classes: "govuk-input--width-4 govuk-input--error",
+                      name: "year"
+                    }
+                  ]
+                }) }}
+
+
+              <!--When was your passport issued? - without errors -->
+
+              {{ govukDateInput({
+                id: "passport-issued",
+                namePrefix: "passport-issued",
+                fieldset: {
+                  legend: {
+                    text: "When was your passport issued?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                  }
+                },
+                hint: {
+                  text: "For example, 27 3 2007"
+                }
+              }) }}
+
+
+
+
+
+
+
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

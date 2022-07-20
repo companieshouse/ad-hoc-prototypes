@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Heading</h1>
+
+      <form class="form" action="confirmation" method="post">
+<!-- IMPORTANT - this only wors when your form elements are inside an opening and closing form elemenent -->
+
+
+
+        <!--What is the name of the event? - without errors -->
+
+
+        {{ govukInput({
+            label: {
+              text: "What is the name of the event?",
+              classes: "govuk-label--l",
+              isPageHeading: true
+            },
+            id: "event-name",
+            name: "event-name"
+          }) }}
+
+
+
+
+
+          <!--Have you changed your name?- without errors -->
+
+          {{ govukRadios({
+                classes: "govuk-radios--inline",
+                idPrefix: "changed-name",
+                name: "changed-name",
+                fieldset: {
+                  legend: {
+                    text: "Have you changed your name?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                  }
+                },
+                hint: {
+                  text: "This includes changing your last name or spelling your name differently."
+                },
+                items: [
+                  {
+                    value: "yes",
+                    text: "Yes"
+                  },
+                  {
+                    value: "no",
+                    text: "No"
+                  }
+                ]
+              }) }}
+
+
+
+
+              <!--When was your passport issued? - without errors -->
+
+              {{ govukDateInput({
+                id: "passport-issued",
+                namePrefix: "passport-issued",
+                fieldset: {
+                  legend: {
+                    text: "When was your passport issued?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                  }
+                },
+                hint: {
+                  text: "For example, 27 3 2007"
+                }
+              }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+        <!-- IMPORTANT - this only works with a button, before the closing form tag - it will not work with a hyperlink even if
+      that hyperlink LOOKS like a button and/ir has a class of 'govuk-button' -->
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
