@@ -44,12 +44,26 @@
         <span class="govuk-!-font-weight-bold">
           LAWYERS JERSEY LIMITED (SF0000623)
         </span>
-        to its UK establishment address:
-      <br><br> </p>
+        to one of its UK establishment addresses. <br><br>     </p>
 
-      <p class="govuk-body govuk-!-font-weight-bold">
-        Lawers Estate Office, Comrie, Lawers House
+      <p class="govuk-body">
+      <strong>  Which UK establishment address should we use to send the code? </strong>
       </p>
+
+        <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+          Lawers Estate Office, Comrie, Lawers House
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+          1 Apple Street, Cardiff, CF12 3AB
+        </label>
+
+      </div>
 
       {{ govukButton({
         text: "Request authentication code",
