@@ -1,0 +1,8 @@
+{
+  "serviceName": "Ad hoc prototype work",
+  "plugins": {
+    "govuk-frontend": {
+      "rebrand": true
+    }
+  }
+}
