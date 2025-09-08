@@ -1,0 +1,63 @@
+{% extends "layouts/main.html" %}
+{% block header %}
+
+  <!-- Companies House header -->
+  <div style="background:#0b0c0c; padding:10px 0;">
+    <div class="govuk-width-container" style="display:flex; align-items:center;">
+      <a href="/shortcuts" style="text-decoration:none; margin-right:10px;">
+        <img src="http://resources.companieshouse.gov.uk/images/royal-coat-of-arms-white.png"
+             alt="UK Government crest" height="32">
+      </a>
+      <a href="https://www.gov.uk/government/organisations/companies-house"
+         style="font-family:Helvetica,Arial,sans-serif;
+                font-size:28px;
+                font-weight:700;
+                color:#efefef;
+                text-decoration:none;">
+        Companies House
+      </a>
+    </div>
+  </div>
+
+  <!-- Blue underline -->
+  <div style="background-color:#005EA5; height:10px; width:100%;"></div>
+{% endblock %}
+
+
+{% block beforeContent %}
+  
+  {% include "/includes/language-toggle.html" %}
+  
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Request an authentication code</h1>
+
+      <p class="govuk-body">
+        We’ll send the authentication code for
+        <span class="govuk-!-font-weight-bold">
+          LAWYERS JERSEY LIMITED (SF0000623)
+        </span>
+        to its UK establishment address:
+      </p>
+
+      <p class="govuk-body govuk-!-font-weight-bold">
+        Lawers Estate Office, Comrie, Lawers House
+      </p>
+
+      {{ govukButton({
+        text: "Request authentication code",
+        classes: "govuk-!-margin-top-6"
+      }) }}
+
+    </div>
+  </div>
+
+
+{% endblock %}
