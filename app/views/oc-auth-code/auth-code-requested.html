@@ -55,9 +55,15 @@
       </p>
 
       <p class="govuk-body govuk-!-font-weight-bold">
-        Lawers Estate Office, <br>
-        Comrie, <br>
-        Lawers House
+        {% if data['whereDoYouLive'] == 'cardiff' %}
+          1 Apple Street, <br>
+          Cardiff, <br>
+          CF12 3AB
+        {% else %}
+          Lawers Estate Office, <br>
+          Comrie, <br>
+          Lawers House
+        {% endif %}
       </p>
 
       {{ govukButton({
