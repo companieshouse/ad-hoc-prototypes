@@ -9,11 +9,7 @@
              alt="UK Government crest" height="32">
       </a>
       <a href="https://www.gov.uk/government/organisations/companies-house"
-         style="font-family:Helvetica,Arial,sans-serif;
-                font-size:28px;
-                font-weight:700;
-                color:#efefef;
-                text-decoration:none;">
+         style="font-family:Helvetica,Arial,sans-serif; font-size:28px; font-weight:700; color:#efefef; text-decoration:none;">
         Companies House
       </a>
     </div>
@@ -23,58 +19,85 @@
   <div style="background-color:#005EA5; height:10px; width:100%;"></div>
 {% endblock %}
 
-
 {% block beforeContent %}
-  
   {% include "/includes/language-toggle.html" %}
-  
 {% endblock %}
-
-
 
 {% block content %}
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Authentication code requested</h1>
+    <h1 class="govuk-heading-xl">Authentication code requested</h1>
 
-      <p class="govuk-body">
-        An authentication code has been requested for
-        <span class="govuk-!-font-weight-bold"><br>
-          LAWYERS JERSEY LIMITED (SF0000623)
-        </span>
-        <br>     </p>
+    <p class="govuk-body">
+      An authentication code has been requested for
+      <span class="govuk-!-font-weight-bold"><br>
+        LAWYERS JERSEY LIMITED (SF0000623)
+      </span>
+      <br>
+    </p>
 
-      <p class="govuk-body">
+    <p class="govuk-body">
       The code will be sent by post to the UK establishment address below (normally within 5 working days).
-      </p>
+    </p>
 
-       <p class="govuk-body">
+    <p class="govuk-body">
       UK establishment address:
-      </p>
+    </p>
 
-      <p class="govuk-body govuk-!-font-weight-bold">
-        {% if data['whereDoYouLive'] == 'cardiff' %}
-          1 Apple Street, <br>
-          Cardiff, <br>
-          CF12 3AB
-        {% else %}
-          Lawers Estate Office, <br>
-          Comrie, <br>
-          Lawers House
-        {% endif %}
-      </p>
+    {% set addresses = {
+      "address1": "Lawers Estate Office, <br>Comrie, <br>Lawers House",
+      "address2": "1 Apple Street, <br>Cardiff, <br>CF12 3AB",
+      "address3": "22 Baker Street, <br>London, <br>NW1 6XE",
+      "address4": "15 High Street, <br>Edinburgh, <br>EH1 1YZ",
+      "address5": "7 Castle Road, <br>Newcastle, <br>NE1 5RP",
+      "address6": "32 King Street, <br>Manchester, <br>M2 4DW",
+      "address7": "18 Queen Street, <br>Glasgow, <br>G1 3DG",
+      "address8": "11 Victoria Avenue, <br>Birmingham, <br>B1 1AA",
+      "address9": "24 Station Road, <br>Leeds, <br>LS1 2ES",
+      "address10": "3 Market Street, <br>Bristol, <br>BS1 1JY",
+      "address11": "9 Church Lane, <br>Liverpool, <br>L1 9QQ",
+      "address12": "27 Oxford Road, <br>Cambridge, <br>CB2 1TN",
+      "address13": "6 Park Lane, <br>Nottingham, <br>NG1 1AA",
+      "address14": "40 Regent Street, <br>Brighton, <br>BN1 1XX",
+      "address15": "14 Princes Street, <br>York, <br>YO1 7PX",
+      "address16": "5 Mill Road, <br>Reading, <br>RG1 1PA",
+      "address17": "21 King Edward Street, <br>Sheffield, <br>S1 2FJ",
+      "address18": "8 George Street, <br>Southampton, <br>SO14 2AA",
+      "address19": "30 New Road, <br>Plymouth, <br>PL1 2AB",
+      "address20": "12 Queen Victoria Street, <br>Norwich, <br>NR2 4AA",
+      "address21": "7 Duke Street, <br>Belfast, <br>BT1 1AA",
+      "address22": "18 St John Street, <br>Cardiff, <br>CF10 1EX",
+      "address23": "33 Church Road, <br>Swansea, <br>SA1 2AA",
+      "address24": "4 Albert Square, <br>Manchester, <br>M2 7BE",
+      "address25": "9 Princes Street, <br>Edinburgh, <br>EH2 4AA",
+      "address26": "15 King William Street, <br>London, <br>EC4N 7DT",
+      "address27": "11 Highgate Road, <br>London, <br>NW5 1RL",
+      "address28": "20 Broad Street, <br>Oxford, <br>OX1 3AA",
+      "address29": "8 Castle Street, <br>Windsor, <br>SL4 1AA",
+      "address30": "19 St Pauls Road, <br>Bristol, <br>BS8 1AA",
+      "address31": "25 New Town Road, <br>Edinburgh, <br>EH3 5AA",
+      "address32": "6 Victoria Parade, <br>Cardiff, <br>CF10 1EX",
+      "address33": "14 King Street, <br>Aberdeen, <br>AB24 5AA",
+      "address34": "7 Bridge Street, <br>Newcastle upon Tyne, <br>NE1 1AA",
+      "address35": "10 Church Lane, <br>Bath, <br>BA1 1AA",
+      "address36": "3 Queen Street, <br>Belfast, <br>BT1 6AA",
+      "address37": "5 Regent Street, <br>Nottingham, <br>NG1 5AA",
+      "address38": "22 High Street, <br>Cambridge, <br>CB2 1AA"
+    } %}
 
-      {{ govukButton({
-        text: "Continue",
-        classes: "govuk-!-margin-top-6"
-      }) }}
+    <p class="govuk-body govuk-!-font-weight-bold">
+      {{ addresses[data['whereDoYouLive']] | default(addresses['address1']) | safe }}
 
-      </div>
+    </p>
 
-      
+    {{ govukButton({
+      text: "Continue",
+      classes: "govuk-!-margin-top-6"
+    }) }}
+
   </div>
-
+</div>
 
 {% endblock %}
