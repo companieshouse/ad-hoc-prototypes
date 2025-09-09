@@ -12,7 +12,6 @@
 {% extends "layouts/main.html" %}
 {% block header %}
 
-  <!-- Companies House header -->
   <div style="background:#0b0c0c; padding:10px 0;">
     <div class="govuk-width-container" style="display:flex; align-items:center;">
       <a href="/shortcuts" style="text-decoration:none; margin-right:10px;">
@@ -20,13 +19,16 @@
              alt="UK Government crest" height="32">
       </a>
       <a href="https://www.gov.uk/government/organisations/companies-house"
-         style="font-family:Helvetica,Arial,sans-serif; font-size:28px; font-weight:700; color:#efefef; text-decoration:none;">
+         style="font-family:Helvetica,Arial,sans-serif;
+                font-size:28px;
+                font-weight:700;
+                color:#efefef;
+                text-decoration:none;">
         Companies House
       </a>
     </div>
   </div>
 
-  <!-- Blue underline -->
   <div style="background-color:#005EA5; height:10px; width:100%;"></div>
 {% endblock %}
 
@@ -35,7 +37,6 @@
 {% endblock %}
 
 {% block content %}
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
@@ -46,69 +47,74 @@
       <span class="govuk-!-font-weight-bold">
         LAWYERS JERSEY LIMITED (SF0000623)
       </span>
-      to one of its UK establishment addresses. <br><br>     
+      to one of its establishment addresses.<br><br>     
     </p>
 
     <p class="govuk-body">
-      <strong>Which UK establishment address should we use to send the code?</strong>
+      <strong>Which address should we use to send the code?</strong>
     </p>
 
     <form class="form" action="auth-code-requested" method="post">
       <div class="govuk-radios" data-module="govuk-radios">
 
-        {% for i in range(1, 39) %}
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="whereDoYouLive-{{ i }}" name="whereDoYouLive" type="radio" value="address{{ i }}" {% if i == 1 %}checked{% endif %}>
-          <label class="govuk-label govuk-radios__label" for="whereDoYouLive-{{ i }}">
-            {{ ["Lawers Estate Office, Comrie, Lawers House",
-                "1 Apple Street, Cardiff, CF12 3AB",
-                "22 Baker Street, London, NW1 6XE",
-                "15 High Street, Edinburgh, EH1 1YZ",
-                "7 Castle Road, Newcastle, NE1 5RP",
-                "32 King Street, Manchester, M2 4DW",
-                "18 Queen Street, Glasgow, G1 3DG",
-                "11 Victoria Avenue, Birmingham, B1 1AA",
-                "24 Station Road, Leeds, LS1 2ES",
-                "3 Market Street, Bristol, BS1 1JY",
-                "9 Church Lane, Liverpool, L1 9QQ",
-                "27 Oxford Road, Cambridge, CB2 1TN",
-                "6 Park Lane, Nottingham, NG1 1AA",
-                "40 Regent Street, Brighton, BN1 1XX",
-                "14 Princes Street, York, YO1 7PX",
-                "5 Mill Road, Reading, RG1 1PA",
-                "21 King Edward Street, Sheffield, S1 2FJ",
-                "8 George Street, Southampton, SO14 2AA",
-                "30 New Road, Plymouth, PL1 2AB",
-                "12 Queen Victoria Street, Norwich, NR2 4AA",
-                "7 Duke Street, Belfast, BT1 1AA",
-                "18 St John Street, Cardiff, CF10 1EX",
-                "33 Church Road, Swansea, SA1 2AA",
-                "4 Albert Square, Manchester, M2 7BE",
-                "9 Princes Street, Edinburgh, EH2 4AA",
-                "15 King William Street, London, EC4N 7DT",
-                "11 Highgate Road, London, NW5 1RL",
-                "20 Broad Street, Oxford, OX1 3AA",
-                "8 Castle Street, Windsor, SL4 1AA",
-                "19 St Pauls Road, Bristol, BS8 1AA",
-                "25 New Town Road, Edinburgh, EH3 5AA",
-                "6 Victoria Parade, Cardiff, CF10 1EX",
-                "14 King Street, Aberdeen, AB24 5AA",
-                "7 Bridge Street, Newcastle upon Tyne, NE1 1AA",
-                "10 Church Lane, Bath, BA1 1AA",
-                "3 Queen Street, Belfast, BT1 6AA",
-                "5 Regent Street, Nottingham, NG1 5AA",
-                "22 High Street, Cambridge, CB2 1AA",
-                "12 King Edward Avenue, Leeds, LS1 4AA"
-            ][i-1] }}
-          </label>
-        </div>
+        {% set addresses = [
+          "Lawers Estate Office, Comrie, Lawers House",
+          "1 Apple Street, Cardiff, CF12 3AB",
+          "14 Rue des Lilas, Paris, 75010, France",
+          "22 Calle Mayor, Madrid, 28013, Spain",
+          "Via Roma 45, Rome, 00184, Italy",
+          "Alexanderplatz 12, Berlin, 10178, Germany",
+          "Rua da Flores 8, Lisbon, 1200-192, Portugal",
+          "3 Avenue Louise, Brussels, 1050, Belgium",
+          "Mariahilfer Straße 99, Vienna, 1060, Austria",
+          "Drottninggatan 42, Stockholm, 11121, Sweden",
+          "Karl Johans gate 15, Oslo, 0154, Norway",
+          "Nyhavn 18, Copenhagen, 1051, Denmark",
+          "Prinsengracht 220, Amsterdam, 1016, Netherlands",
+          "9 Ermou Street, Athens, 10563, Greece",
+          "Bahnhofstrasse 12, Zurich, 8001, Switzerland",
+          "Wenceslas Square 31, Prague, 11000, Czech Republic",
+          "Nowy Świat 5, Warsaw, 00-496, Poland",
+          "Andrássy út 21, Budapest, 1061, Hungary",
+          "Mannerheimintie 10, Helsinki, 00100, Finland",
+          "Stradun 3, Dubrovnik, 20000, Croatia",
+          "Vitosha Boulevard 12, Sofia, 1000, Bulgaria",
+          "Gedimino pr. 25, Vilnius, LT-01103, Lithuania",
+          "Brīvības iela 8, Riga, LV-1050, Latvia",
+          "Viru tänav 6, Tallinn, 10111, Estonia",
+          "Ilica 44, Zagreb, 10000, Croatia",
+          "Prešeren Square 2, Ljubljana, 1000, Slovenia",
+          "Republic Street 15, Valletta, VLT1111, Malta",
+          "Laugavegur 12, Reykjavik, 101, Iceland",
+          "Atatürk Bulvarı 33, Ankara, 06000, Turkey",
+          "Istiklal Caddesi 45, Istanbul, 34433, Turkey",
+          "12 Tahrir Square, Cairo, 11511, Egypt",
+          "500 Fifth Avenue, New York, NY 10110, USA",
+          "120 Bloor Street, Toronto, ON M5S 1M8, Canada",
+          "88 George Street, Sydney, NSW 2000, Australia",
+          "9 Lambton Quay, Wellington, 6011, New Zealand",
+          "1-2-3 Shibuya, Tokyo, 150-0002, Japan",
+          "18 Queen’s Road, Central, Hong Kong",
+          "25 Orchard Road, Singapore 238888"
+        ] %}
+
+        {% for address in addresses %}
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input"
+                   id="whereDoYouLive-{{ loop.index0 }}"
+                   name="whereDoYouLive"
+                   type="radio"
+                   value="{{ loop.index0 }}"
+                   {% if loop.index0 == 0 %}checked{% endif %}>
+            <label class="govuk-label govuk-radios__label" for="whereDoYouLive-{{ loop.index0 }}">
+              {{ address }}
+            </label>
+          </div>
         {% endfor %}
 
       </div>
 
-      <button type="submit" class="govuk-button govuk-!-margin-top-6">
-        Request authentication code
-      </button>
+      <button type="submit" class="govuk-button govuk-!-margin-top-6">Request authentication code</button>
     </form>
 
     <div class="ur-shortcuts">
@@ -120,6 +126,5 @@
 
   </div>
 </div>
-
 {% endblock %}
 

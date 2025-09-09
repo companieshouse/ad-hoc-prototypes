@@ -12,7 +12,6 @@
 {% extends "layouts/main.html" %}
 {% block header %}
 
-  <!-- Companies House header -->
   <div style="background:#0b0c0c; padding:10px 0;">
     <div class="govuk-width-container" style="display:flex; align-items:center;">
       <a href="/shortcuts" style="text-decoration:none; margin-right:10px;">
@@ -20,13 +19,16 @@
              alt="UK Government crest" height="32">
       </a>
       <a href="https://www.gov.uk/government/organisations/companies-house"
-         style="font-family:Helvetica,Arial,sans-serif; font-size:28px; font-weight:700; color:#efefef; text-decoration:none;">
+         style="font-family:Helvetica,Arial,sans-serif;
+                font-size:28px;
+                font-weight:700;
+                color:#efefef;
+                text-decoration:none;">
         Companies House
       </a>
     </div>
   </div>
 
-  <!-- Blue underline -->
   <div style="background-color:#005EA5; height:10px; width:100%;"></div>
 {% endblock %}
 
@@ -35,7 +37,6 @@
 {% endblock %}
 
 {% block content %}
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
@@ -45,62 +46,61 @@
       An authentication code has been requested for
       <span class="govuk-!-font-weight-bold"><br>
         LAWYERS JERSEY LIMITED (SF0000623)
-      </span>
-      <br>
+      </span><br>
     </p>
 
     <p class="govuk-body">
-      The code will be sent by post to the UK establishment address below (normally within 5 working days).
+      The code will be sent by post to the selected establishment address below (normally within 5 working days).
     </p>
 
-    <p class="govuk-body">
-      UK establishment address:
-    </p>
+    {% set addresses = [
+      "Lawers Estate Office, <br>Comrie, <br>Lawers House",
+      "1 Apple Street, <br>Cardiff, <br>CF12 3AB",
+      "14 Rue des Lilas, <br>Paris, <br>75010, France",
+      "22 Calle Mayor, <br>Madrid, <br>28013, Spain",
+      "Via Roma 45, <br>Rome, <br>00184, Italy",
+      "Alexanderplatz 12, <br>Berlin, <br>10178, Germany",
+      "Rua da Flores 8, <br>Lisbon, <br>1200-192, Portugal",
+      "3 Avenue Louise, <br>Brussels, <br>1050, Belgium",
+      "Mariahilfer Straße 99, <br>Vienna, <br>1060, Austria",
+      "Drottninggatan 42, <br>Stockholm, <br>11121, Sweden",
+      "Karl Johans gate 15, <br>Oslo, <br>0154, Norway",
+      "Nyhavn 18, <br>Copenhagen, <br>1051, Denmark",
+      "Prinsengracht 220, <br>Amsterdam, <br>1016, Netherlands",
+      "9 Ermou Street, <br>Athens, <br>10563, Greece",
+      "Bahnhofstrasse 12, <br>Zurich, <br>8001, Switzerland",
+      "Wenceslas Square 31, <br>Prague, <br>11000, Czech Republic",
+      "Nowy Świat 5, <br>Warsaw, <br>00-496, Poland",
+      "Andrássy út 21, <br>Budapest, <br>1061, Hungary",
+      "Mannerheimintie 10, <br>Helsinki, <br>00100, Finland",
+      "Stradun 3, <br>Dubrovnik, <br>20000, Croatia",
+      "Vitosha Boulevard 12, <br>Sofia, <br>1000, Bulgaria",
+      "Gedimino pr. 25, <br>Vilnius, <br>LT-01103, Lithuania",
+      "Brīvības iela 8, <br>Riga, <br>LV-1050, Latvia",
+      "Viru tänav 6, <br>Tallinn, <br>10111, Estonia",
+      "Ilica 44, <br>Zagreb, <br>10000, Croatia",
+      "Prešeren Square 2, <br>Ljubljana, <br>1000, Slovenia",
+      "Republic Street 15, <br>Valletta, <br>VLT1111, Malta",
+      "Laugavegur 12, <br>Reykjavik, <br>101, Iceland",
+      "Atatürk Bulvarı 33, <br>Ankara, <br>06000, Turkey",
+      "Istiklal Caddesi 45, <br>Istanbul, <br>34433, Turkey",
+      "12 Tahrir Square, <br>Cairo, <br>11511, Egypt",
+      "500 Fifth Avenue, <br>New York, <br>NY 10110, USA",
+      "120 Bloor Street, <br>Toronto, <br>ON M5S 1M8, Canada",
+      "88 George Street, <br>Sydney, <br>NSW 2000, Australia",
+      "9 Lambton Quay, <br>Wellington, <br>6011, New Zealand",
+      "1-2-3 Shibuya, <br>Tokyo, <br>150-0002, Japan",
+      "18 Queen’s Road, <br>Central, <br>Hong Kong",
+      "25 Orchard Road, <br>Singapore 238888"
+    ] %}
 
-    {% set addresses = {
-      "address1": "Lawers Estate Office, <br>Comrie, <br>Lawers House",
-      "address2": "1 Apple Street, <br>Cardiff, <br>CF12 3AB",
-      "address3": "22 Baker Street, <br>London, <br>NW1 6XE",
-      "address4": "15 High Street, <br>Edinburgh, <br>EH1 1YZ",
-      "address5": "7 Castle Road, <br>Newcastle, <br>NE1 5RP",
-      "address6": "32 King Street, <br>Manchester, <br>M2 4DW",
-      "address7": "18 Queen Street, <br>Glasgow, <br>G1 3DG",
-      "address8": "11 Victoria Avenue, <br>Birmingham, <br>B1 1AA",
-      "address9": "24 Station Road, <br>Leeds, <br>LS1 2ES",
-      "address10": "3 Market Street, <br>Bristol, <br>BS1 1JY",
-      "address11": "9 Church Lane, <br>Liverpool, <br>L1 9QQ",
-      "address12": "27 Oxford Road, <br>Cambridge, <br>CB2 1TN",
-      "address13": "6 Park Lane, <br>Nottingham, <br>NG1 1AA",
-      "address14": "40 Regent Street, <br>Brighton, <br>BN1 1XX",
-      "address15": "14 Princes Street, <br>York, <br>YO1 7PX",
-      "address16": "5 Mill Road, <br>Reading, <br>RG1 1PA",
-      "address17": "21 King Edward Street, <br>Sheffield, <br>S1 2FJ",
-      "address18": "8 George Street, <br>Southampton, <br>SO14 2AA",
-      "address19": "30 New Road, <br>Plymouth, <br>PL1 2AB",
-      "address20": "12 Queen Victoria Street, <br>Norwich, <br>NR2 4AA",
-      "address21": "7 Duke Street, <br>Belfast, <br>BT1 1AA",
-      "address22": "18 St John Street, <br>Cardiff, <br>CF10 1EX",
-      "address23": "33 Church Road, <br>Swansea, <br>SA1 2AA",
-      "address24": "4 Albert Square, <br>Manchester, <br>M2 7BE",
-      "address25": "9 Princes Street, <br>Edinburgh, <br>EH2 4AA",
-      "address26": "15 King William Street, <br>London, <br>EC4N 7DT",
-      "address27": "11 Highgate Road, <br>London, <br>NW5 1RL",
-      "address28": "20 Broad Street, <br>Oxford, <br>OX1 3AA",
-      "address29": "8 Castle Street, <br>Windsor, <br>SL4 1AA",
-      "address30": "19 St Pauls Road, <br>Bristol, <br>BS8 1AA",
-      "address31": "25 New Town Road, <br>Edinburgh, <br>EH3 5AA",
-      "address32": "6 Victoria Parade, <br>Cardiff, <br>CF10 1EX",
-      "address33": "14 King Street, <br>Aberdeen, <br>AB24 5AA",
-      "address34": "7 Bridge Street, <br>Newcastle upon Tyne, <br>NE1 1AA",
-      "address35": "10 Church Lane, <br>Bath, <br>BA1 1AA",
-      "address36": "3 Queen Street, <br>Belfast, <br>BT1 6AA",
-      "address37": "5 Regent Street, <br>Nottingham, <br>NG1 5AA",
-      "address38": "22 High Street, <br>Cambridge, <br>CB2 1AA"
-    } %}
+    {% set selected_index = 0 %}
+    {% if data['whereDoYouLive'] is defined and data['whereDoYouLive'] | int >= 0 and data['whereDoYouLive'] | int < addresses | length %}
+      {% set selected_index = data['whereDoYouLive'] | int %}
+    {% endif %}
 
     <p class="govuk-body govuk-!-font-weight-bold">
-      {{ addresses[data['whereDoYouLive']] | default(addresses['address1']) | safe }}
-
+      {{ addresses[selected_index] | safe }}
     </p>
 
     {{ govukButton({
@@ -110,5 +110,4 @@
 
   </div>
 </div>
-
 {% endblock %}
