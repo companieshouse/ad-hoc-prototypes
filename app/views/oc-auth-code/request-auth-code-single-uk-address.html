@@ -10,30 +10,17 @@
 
 
 {% extends "layouts/main.html" %}
-{% block header %}
 
-  <div style="background:#0b0c0c; padding:10px 0;">
-    <div class="govuk-width-container" style="display:flex; align-items:center;">
-      <a href="/shortcuts" style="text-decoration:none; margin-right:10px;">
-        <img src="http://resources.companieshouse.gov.uk/images/royal-coat-of-arms-white.png"
-             alt="UK Government crest" height="32">
-      </a>
-      <a href="https://www.gov.uk/government/organisations/companies-house"
-         style="font-family:Helvetica,Arial,sans-serif;
-                font-size:28px;
-                font-weight:700;
-                color:#efefef;
-                text-decoration:none;">
-        Companies House
-      </a>
-    </div>
-  </div>
+{% set serviceName %}
+  Find and update company information
+{% endset%}
 
-  <div style="background-color:#005EA5; height:10px; width:100%;"></div>
-{% endblock %}
-
-{% block beforeContent %}
-  {% include "/includes/language-toggle.html" %}
+  {% block beforeContent %}
+ 
+  {% include "/includes/language-toggle.html" %} 
+  {% include "/includes/account-banner.html" %}
+  {% include "/includes/back-link.html" %}
+ 
 {% endblock %}
 
 {% block content %}

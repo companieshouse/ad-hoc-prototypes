@@ -15,9 +15,15 @@
   LAWYERS JERSEY LIMITED Overview– {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
+{% set serviceName %}
+  Find and update company information
+{% endset%} 
+
 {% block beforeContent %}
+ <a class="govuk-link govuk-link--no-visited-state" href="https://resources.companieshouse.gov.uk/serviceInformation.shtml#compInfo">Companies House does not verify the accuracy of the information filed</a> 
   {% include "includes/account-banner.html" %}
 {% endblock %}
+
 
 {% block content %}
   <div class="govuk-grid-row">
@@ -71,6 +77,16 @@
             </a>
           </li>
           <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#">
+              Charges
+            </a>
+          </li>
+            <li class="govuk-tabs__list-item">
+            <a class="govuk-tabs__tab" href="#">
+              UK establishments
+            </a>
+          </li>
+          <li class="govuk-tabs__list-item">
             <a class="govuk-tabs__tab" href="#more">
               More
             </a>
@@ -81,7 +97,7 @@
             <div class="govuk-grid-column-full">
               <ul class='govuk-list'>
                 <li>Overseas company address</li>
-                <li class="govuk-!-margin-bottom-4"><strong>Lawers Estate Office, Comrie, Lawers House</strong></li>
+                <li class="govuk-!-margin-bottom-4"></li>
                 <li>Company status</li>
                 <li><strong>Active</strong></li>
               </ul>
