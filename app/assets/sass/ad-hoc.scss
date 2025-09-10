@@ -3,15 +3,13 @@
 .homepage {
   a:link,
   a:visited {
-    text-align: center;
     background-color: govuk-colour("blue");
     color: govuk-colour("white");
     margin: 0 0.7em 0.7em 0;
     height: 7em;
-    padding: 0.7em;
+    padding: 0.3em;
     text-decoration: none;
     border: 10px solid govuk-colour("blue");
-
     &:focus,
     &:hover {
       background-color: govuk-colour("yellow");
