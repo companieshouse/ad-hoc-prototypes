@@ -8,19 +8,16 @@
 
 <!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
 
-
 {% extends "layouts/main.html" %}
 
 {% set serviceName %}
   Find and update company information
 {% endset%}
 
-  {% block beforeContent %}
- 
+{% block beforeContent %}
   {% include "/includes/language-toggle.html" %} 
   {% include "/includes/account-banner.html" %}
   {% include "/includes/back-link.html" %}
- 
 {% endblock %}
 
 {% block content %}
@@ -35,21 +32,68 @@
         LAWYERS JERSEY LIMITED (SF0000623)
       </span>
       to its UK establishment address:
-    <br><br> </p>
+    <br><br></p>
+
+    {% set addresses = [
+      "Lawers Estate Office, Comrie, Lawers House",
+        "1 Apple Street, Cardiff, CF12 3AB",
+        "22 Baker Street, London, NW1 6XE",
+        "15 High Street, Edinburgh, EH1 1YZ",
+        "7 Castle Road, Newcastle, NE1 5RP",
+        "32 King Street, Manchester, M2 4DW",
+        "18 Queen Street, Glasgow, G1 3DG",
+        "11 Victoria Avenue, Birmingham, B1 1AA",
+        "24 Station Road, Leeds, LS1 2ES",
+        "3 Market Street, Bristol, BS1 1JY",
+        "9 Church Lane, Liverpool, L1 9QQ",
+        "27 Oxford Road, Cambridge, CB2 1TN",
+        "6 Park Lane, Nottingham, NG1 1AA",
+        "40 Regent Street, Brighton, BN1 1XX",
+        "14 Princes Street, York, YO1 7PX",
+        "5 Mill Road, Reading, RG1 1PA",
+        "21 King Edward Street, Sheffield, S1 2FJ",
+        "8 George Street, Southampton, SO14 2AA",
+        "30 New Road, Plymouth, PL1 2AB",
+        "12 Queen Victoria Street, Norwich, NR2 4AA",
+        "7 Duke Street, Belfast, BT1 1AA",
+        "18 St John Street, Cardiff, CF10 1EX",
+        "33 Church Road, Swansea, SA1 2AA",
+        "4 Albert Square, Manchester, M2 7BE",
+        "9 Princes Street, Edinburgh, EH2 4AA",
+        "15 King William Street, London, EC4N 7DT",
+        "11 Highgate Road, London, NW5 1RL",
+        "20 Broad Street, Oxford, OX1 3AA",
+        "8 Castle Street, Windsor, SL4 1AA",
+        "19 St Pauls Road, Bristol, BS8 1AA",
+        "25 New Town Road, Edinburgh, EH3 5AA",
+        "6 Victoria Parade, Cardiff, CF10 1EX",
+        "14 King Street, Aberdeen, AB24 5AA",
+        "7 Bridge Street, Newcastle upon Tyne, NE1 1AA",
+        "10 Church Lane, Bath, BA1 1AA",
+        "3 Queen Street, Belfast, BT1 6AA",
+        "5 Regent Street, Nottingham, NG1 5AA",
+        "22 High Street, Cambridge, CB2 1AA"
+    ] %}
+
+    {# Default to Lawers (0) unless radio button was selected earlier #}
+    {% set selected_index = 0 %}
+    {% if data['whereDoYouLive'] is defined and data['whereDoYouLive']|int < addresses|length %}
+      {% set selected_index = data['whereDoYouLive']|int %}
+    {% endif %}
 
     <p class="govuk-body govuk-!-font-weight-bold">
-      Lawers Estate Office, Comrie, Lawers House
+      {{ addresses[selected_index] }}
     </p>
 
     <form class="form" action="auth-code-requested" method="post">
-      {# Set default address index to 0 (Lawers) #}
-      <input type="hidden" name="whereDoYouLive" value="0">
+      <input type="hidden" name="whereDoYouLive" value="{{ selected_index }}">
       {{ govukButton({
         text: "Request authentication code",
         classes: "govuk-!-margin-top-6",
         type: "submit"
       }) }}
     </form>
+
 
     <div class="ur-shortcuts">
       <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcut:</p>
