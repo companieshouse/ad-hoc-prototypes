@@ -1,7 +1,17 @@
+<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
+
+<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
+
+<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
+
+<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
+
+<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
+
+
 {% extends "layouts/main.html" %}
 {% block header %}
 
-  <!-- Companies House header -->
   <div style="background:#0b0c0c; padding:10px 0;">
     <div class="govuk-width-container" style="display:flex; align-items:center;">
       <a href="/shortcuts" style="text-decoration:none; margin-right:10px;">
@@ -19,44 +29,40 @@
     </div>
   </div>
 
-  <!-- Blue underline -->
   <div style="background-color:#005EA5; height:10px; width:100%;"></div>
 {% endblock %}
 
-
 {% block beforeContent %}
-  
   {% include "/includes/language-toggle.html" %}
-  
 {% endblock %}
 
-
-
 {% block content %}
-
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Request an authentication code</h1>
+    <h1 class="govuk-heading-xl">Request an authentication code</h1>
 
-      <p class="govuk-body">
-        We’ll send the authentication code for
-        <span class="govuk-!-font-weight-bold">
-          LAWYERS JERSEY LIMITED (SF0000623)
-        </span>
-        to its UK establishment address:
-      <br><br> </p>
+    <p class="govuk-body">
+      We’ll send the authentication code for
+      <span class="govuk-!-font-weight-bold">
+        LAWYERS JERSEY LIMITED (SF0000623)
+      </span>
+      to its UK establishment address:
+    <br><br> </p>
 
-      <p class="govuk-body govuk-!-font-weight-bold">
-        Lawers Estate Office, Comrie, Lawers House
-      </p>
+    <p class="govuk-body govuk-!-font-weight-bold">
+      Lawers Estate Office, Comrie, Lawers House
+    </p>
 
+    <form class="form" action="auth-code-requested" method="post">
+      {# Set default address index to 0 (Lawers) #}
+      <input type="hidden" name="whereDoYouLive" value="0">
       {{ govukButton({
         text: "Request authentication code",
         classes: "govuk-!-margin-top-6",
-        href: "auth-code-requested"
+        type: "submit"
       }) }}
-
+    </form>
 
     <div class="ur-shortcuts">
       <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcut:</p>
@@ -64,11 +70,7 @@
         <li><a class="govuk-link" href="request-auth-code-multiple-uk-address">Screen for multiple UK establishment addresses</a></li>
       </ul>
     </div>
+
   </div>
 </div>
-
-    </div>
-  </div>
-
-
 {% endblock %}

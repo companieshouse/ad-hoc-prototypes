@@ -1,7 +1,17 @@
+<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
+
+<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
+
+<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
+
+<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
+
+<!-- Note to developers: THIS IS NOT PRODUCTION CODE, DO NOT COPY refer to Mural https://app.mural.co/t/companieshouse8589/m/companieshouse8589/1751288082984/650f2035e2ed5316a71942cd5458bd757ffb6050 for Design System elements-->
+
+
 {% extends "layouts/main.html" %}
 {% block header %}
 
-  <!-- Companies House header -->
   <div style="background:#0b0c0c; padding:10px 0;">
     <div class="govuk-width-container" style="display:flex; align-items:center;">
       <a href="/shortcuts" style="text-decoration:none; margin-right:10px;">
@@ -19,62 +29,85 @@
     </div>
   </div>
 
-  <!-- Blue underline -->
   <div style="background-color:#005EA5; height:10px; width:100%;"></div>
 {% endblock %}
 
-
 {% block beforeContent %}
-  
   {% include "/includes/language-toggle.html" %}
-  
 {% endblock %}
 
-
-
 {% block content %}
-
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Authentication code requested</h1>
+    <h1 class="govuk-heading-xl">Authentication code requested</h1>
 
-      <p class="govuk-body">
-        An authentication code has been requested for
-        <span class="govuk-!-font-weight-bold"><br>
-          LAWYERS JERSEY LIMITED (SF0000623)
-        </span>
-        <br>     </p>
+    <p class="govuk-body">
+      An authentication code has been requested for
+      <span class="govuk-!-font-weight-bold"><br>
+        LAWYERS JERSEY LIMITED (SF0000623)
+      </span><br>
+    </p>
 
-      <p class="govuk-body">
-      The code will be sent by post to the UK establishment address below (normally within 5 working days).
-      </p>
+    <p class="govuk-body">
+      The code will be sent by post to the selected establishment address below (normally within 5 working days).
+    </p>
 
-       <p class="govuk-body">
-      UK establishment address:
-      </p>
+    {% set addresses = [
+        "Lawers Estate Office, <br>Comrie, <br>Lawers House",
+        "1 Apple Street, <br>Cardiff, <br>CF12 3AB",
+        "22 Baker Street, <br>London, <br>NW1 6XE",
+        "15 High Street, <br>Edinburgh, <br>EH1 1YZ",
+        "7 Castle Road, <br>Newcastle, <br>NE1 5RP",
+        "32 King Street, <br>Manchester, <br>M2 4DW",
+        "18 Queen Street, <br>Glasgow, <br>G1 3DG",
+        "11 Victoria Avenue, <br>Birmingham, <br>B1 1AA",
+        "24 Station Road, <br>Leeds, <br>LS1 2ES",
+        "3 Market Street, <br>Bristol, <br>BS1 1JY",
+        "9 Church Lane, <br>Liverpool, <br>L1 9QQ",
+        "27 Oxford Road, <br>Cambridge, <br>CB2 1TN",
+        "6 Park Lane, <br>Nottingham, <br>NG1 1AA",
+        "40 Regent Street, <br>Brighton, <br>BN1 1XX",
+        "14 Princes Street, <br>York, <br>YO1 7PX",
+        "5 Mill Road, <br>Reading, <br>RG1 1PA",
+        "21 King Edward Street, <br>Sheffield, <br>S1 2FJ",
+        "8 George Street, <br>Southampton, <br>SO14 2AA",
+        "30 New Road, <br>Plymouth, <br>PL1 2AB",
+        "12 Queen Victoria Street, <br>Norwich, <br>NR2 4AA",
+        "7 Duke Street, <br>Belfast, <br>BT1 1AA",
+        "18 St John Street, <br>Cardiff, <br>CF10 1EX",
+        "33 Church Road, <br>Swansea, <br>SA1 2AA",
+        "4 Albert Square, <br>Manchester, <br>M2 7BE",
+        "9 Princes Street, <br>Edinburgh, <br>EH2 4AA",
+        "15 King William Street, <br>London, <br>EC4N 7DT",
+        "11 Highgate Road, <br>London, <br>NW5 1RL",
+        "20 Broad Street, <br>Oxford, <br>OX1 3AA",
+        "8 Castle Street, <br>Windsor, <br>SL4 1AA",
+        "19 St Pauls Road, <br>Bristol, <br>BS8 1AA",
+        "25 New Town Road, <br>Edinburgh, <br>EH3 5AA",
+        "6 Victoria Parade, <br>Cardiff, <br>CF10 1EX",
+        "14 King Street, <br>Aberdeen, <br>AB24 5AA",
+        "7 Bridge Street, <br>Newcastle upon Tyne, <br>NE1 1AA",
+        "10 Church Lane, <br>Bath, <br>BA1 1AA",
+        "3 Queen Street, <br>Belfast, <br>BT1 6AA",
+        "5 Regent Street, <br>Nottingham, <br>NG1 5AA",
+        "22 High Street, <br>Cambridge, <br>CB2 1AA"
+    ] %}
 
-      <p class="govuk-body govuk-!-font-weight-bold">
-        {% if data['whereDoYouLive'] == 'cardiff' %}
-          1 Apple Street, <br>
-          Cardiff, <br>
-          CF12 3AB
-        {% else %}
-          Lawers Estate Office, <br>
-          Comrie, <br>
-          Lawers House
-        {% endif %}
-      </p>
+    {% set selected_index = 0 %}
+    {% if data['whereDoYouLive'] is defined and data['whereDoYouLive'] | int >= 0 and data['whereDoYouLive'] | int < addresses | length %}
+      {% set selected_index = data['whereDoYouLive'] | int %}
+    {% endif %}
 
-      {{ govukButton({
-        text: "Continue",
-        classes: "govuk-!-margin-top-6"
-      }) }}
+    <p class="govuk-body govuk-!-font-weight-bold">
+      {{ addresses[selected_index] | safe }}
+    </p>
 
-      </div>
+    {{ govukButton({
+      text: "Continue",
+      classes: "govuk-!-margin-top-6"
+    }) }}
 
-      
   </div>
-
-
+</div>
 {% endblock %}
