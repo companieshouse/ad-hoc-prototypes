@@ -1,14 +1,40 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main.html" %}   
+
+{% block header %}
+
+  <!-- Companies House header -->
+  <div style="background:#0b0c0c; padding:10px 0;">
+    <div class="govuk-width-container" style="display:flex; align-items:center;">
+      <a href="/shortcuts" style="text-decoration:none; margin-right:10px;">
+        <img src="http://resources.companieshouse.gov.uk/images/royal-coat-of-arms-white.png"
+             alt="UK Government crest" height="32">
+      </a>
+      <a href="https://www.gov.uk/government/organisations/companies-house"
+         style="font-family:Helvetica,Arial,sans-serif;
+                font-size:28px;
+                font-weight:700;
+                color:#efefef;
+                text-decoration:none;">
+        Companies House
+      </a>
+    </div>
+  </div>
+
+  <!-- Blue underline -->
+  <div style="background-color:#005EA5; height:10px; width:100%;"></div>
+{% endblock %}
 
 {% block pageTitle %}
-  What is the company number? – {{ serviceName }} – GOV.UK Prototype Kit
+  LAWYERS JERSEY LIMITED Overview– {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
+
 {% block beforeContent %}
-  {% include "includes/phase-banner.html" %}
-  {% include "includes/account-banner.html" %}
-  {% include "includes/back-link.html" %}
+ 
+  {% include "includes/language-toggle.html" %}
 {% endblock %}
+
+
 
 {% block content %}
   <div class="govuk-grid-row">
@@ -29,13 +55,15 @@
         {% else %}
           <div class="govuk-form-group">
         {% endif %} 
+        <h1 class="hint-text"> LAWYERS JERSEY LIMITED (SF0000623) </h1>
+            
           <h1 class="govuk-label-wrapper">
             <label class="govuk-label govuk-label--l" for="companyNumber">
-              What is the company number?
+              Enter the company authentication code
             </label>
           </h1>
           <div id="companyNumber-hint" class="govuk-hint">
-            Enter the 8 character company number. 
+            This is a 6 character code issued by us to each company. 
           </div>
           <!-- Check for error -->
           {% if errorCompanyNumber %}
@@ -51,14 +79,11 @@
     aria-describedby="companyNumber-hint companyNumber-inset"
   />
 
-<div id="companyNumber-inset" class="govuk-inset-text">
-  If you have a company number that's 7 characters or less, enter zeros at the start so that it's 8 characters in total. 
-  For example, if it's 12345, enter 00012345.
-</div>
+<br> <br>
 
 {{ govukDetails({
-  summaryText: "How do I find the company number",
-  html: 'You can find this by searching for the company on the <a class="govuk-link" href="https://find-and-update.company-information.service.gov.uk/">Companies House register (Opens in a new tab)</a>.'
+  summaryText: "I do not have a company authentication code",
+  html: "You'll need to <a class=\"govuk-link\" href=\"https://find-and-update.company-information.service.gov.uk/\">request an authentication code</a>."
 }) }}
 
               
