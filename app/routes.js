@@ -9,3 +9,8 @@ const router = govukPrototypeKit.requests.setupRouter()
 // Add your routes here
 
 
+// POST handler for the email page on oc-auth-code 
+router.post('/oc-auth-code/gov-onelogin-email', function (req, res) {
+  req.session.data['emailAddress'] = req.body.govOneLoginEmail
+  res.redirect('/oc-auth-code/gov-onelogin-password')
+})

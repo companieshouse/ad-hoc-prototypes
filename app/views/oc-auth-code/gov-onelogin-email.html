@@ -41,32 +41,20 @@
 
 
 
-      <form class="form" action="/V1/gov-onelogin-email-answer" method="post">
-
-      
-
-
-{{ govukInput({
-  label: {
-    text: "Enter your email address to sign in to your GOV.UK One Login",
-    classes: "govuk-label--l",
-    isPageHeading: true
-  },
-  id: "govOneLoginEmail",
-  name: "govOneLoginEmail"
-}) }}
-
-
-    {{ govukButton({
-    text: "Continue",
-    classes: "govuk-button",
-    href: "gov-onelogin-password"
+      <form class="form" action="/oc-auth-code/gov-onelogin-email" method="post">
+  {{ govukInput({
+    label: {
+      text: "Enter your email address to sign in to your GOV.UK One Login",
+      classes: "govuk-label--l",
+      isPageHeading: true
+    },
+    id: "govOneLoginEmail",
+    name: "govOneLoginEmail"
   }) }}
 
-
-   
-
-
+  {{ govukButton({
+    text: "Continue"
+  }) }}
 </form>
     </div>
   </div>
