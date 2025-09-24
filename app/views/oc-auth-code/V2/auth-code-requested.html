@@ -36,18 +36,21 @@
     </p>
 
 
+    <h2 class="govuk-heading-m">What happens next</h2>
 
 
     <p class="govuk-body">
       We'll send the code by post to the UK establishment address. We usually send this within 5 working days. 
-
-
     </p>
 
-    <h2 class="govuk-heading-s">UK establishment address    </h2>
 
+    <dl class="govuk-summary-list">
 
-
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          UK establishment address
+        </dt>
+        <dd class="govuk-summary-list__value">
 
 
     {% set addresses = [
@@ -100,7 +103,9 @@
       {{ addresses[selected_index] | safe }}
     </p>
 
+  </dd>
 
+  </dl>
 
     {{ govukButton({
       text: "Continue",
