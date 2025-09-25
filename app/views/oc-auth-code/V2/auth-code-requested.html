@@ -28,12 +28,7 @@
 
     <h1 class="govuk-heading-xl">Authentication code requested</h1>
 
-    <p class="govuk-body">
-      You have requested an authentication code for
-      <span class="govuk-!-font-weight-bold"><br>
-        LAWYERS JERSEY LIMITED (SF0000623)
-      </span>.<br>
-    </p>
+
 
 
     <h2 class="govuk-heading-m">What happens next</h2>
@@ -45,14 +40,31 @@
 
 
     <dl class="govuk-summary-list">
-
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Overseas company name 
+        </dt>
+        <dd class="govuk-summary-list__value">
+          LAWYERS JERSEY LIMITED
+          </dd>
+          </div>
+  
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Company number 
+            </dt>
+            <dd class="govuk-summary-list__value">
+              SF0000623
+              </dd>
+              </div>
+  
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           UK establishment address
         </dt>
         <dd class="govuk-summary-list__value">
-
-
+  
+  
     {% set addresses = [
         "Lawers Estate Office, <br>Comrie, <br>Lawers House",
         "1 Apple Street, <br>Cardiff, <br>CF12 3AB",
@@ -93,22 +105,22 @@
         "5 Regent Street, <br>Nottingham, <br>NG1 5AA",
         "22 High Street, <br>Cambridge, <br>CB2 1AA"
     ] %}
-
+  
     {% set selected_index = 0 %}
     {% if data['whereDoYouLive'] is defined and data['whereDoYouLive'] | int >= 0 and data['whereDoYouLive'] | int < addresses | length %}
       {% set selected_index = data['whereDoYouLive'] | int %}
     {% endif %}
-
+  
     <p class="govuk-body ">
       {{ addresses[selected_index] | safe }}
     </p>
-
+  
   </dd>
-
+  
   </dl>
 
     {{ govukButton({
-      text: "Continue",
+      text: "Go to company overview",
       classes: "govuk-!-margin-top-6",
       href: "journey-end"
     }) }}
