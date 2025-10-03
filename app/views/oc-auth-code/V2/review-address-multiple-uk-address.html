@@ -113,6 +113,8 @@
 </dd>
 
 </dl>
+
+<!--
     <details class="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
@@ -124,7 +126,7 @@
         <p> You'll need to request the authentication code once we have updated the address on the register. This can take up to XX days from the date we receive the form. 
         </p>
       </div>
-    </details>
+    </details>-->
 
 
     <form class="form" action="auth-code-requested" method="post">
@@ -134,13 +136,15 @@
         classes: "govuk-!-margin-top-6",
         type: "submit"
       }) }}
+
+      <p><a href="request-auth-code-multiple-uk-address" class="govuk-link">Choose a different address</a></p>
     </form>
 
 
-    <div class="ur-shortcuts">
+     <div class="ur-shortcuts">
       <p class="govuk-body-s govuk-!-margin-bottom-1">UR shortcut:</p>
       <ul class="govuk-list govuk-body-s govuk-!-margin-top-1">
-        <li><a href="request-auth-code-multiple-uk-address">Screen for multiple UK establishment addresses</a></li>
+        <li><a href="review-address">Screen for single UK establishment address</a></li>
       </ul>
     </div>
 
