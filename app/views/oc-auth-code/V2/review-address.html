@@ -25,39 +25,15 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-
+<span class="govuk-caption-l">LAWYERS JERSEY LIMITED (SF0000623) </span>
     <h1 class="govuk-heading-xl">Request an authentication code</h1>
 
     <p class="govuk-body">
       We’ll send the authentication code to the UK establishment address.</p>
       
-      <p>Check the address is correct before you request the code.</p>
-   </p>
+      
 
-   <dl class="govuk-summary-list">
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-        Overseas company name 
-      </dt>
-      <dd class="govuk-summary-list__value">
-        LAWYERS JERSEY LIMITED
-        </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Company number 
-          </dt>
-          <dd class="govuk-summary-list__value">
-            SF0000623
-            </dd>
-            </div>
-
-    <div class="govuk-summary-list__row">
-      <dt class="govuk-summary-list__key">
-        UK establishment address
-      </dt>
-      <dd class="govuk-summary-list__value">
+   
 
 
   {% set addresses = [
@@ -106,13 +82,11 @@
     {% set selected_index = data['whereDoYouLive'] | int %}
   {% endif %}
 
-  <p class="govuk-body ">
+  <p class="govuk-!-font-weight-bold">
     {{ addresses[selected_index] | safe }}
   </p>
 
-</dd>
 
-</dl>
     <details class="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
